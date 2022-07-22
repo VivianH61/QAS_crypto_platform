@@ -1,0 +1,69 @@
+{% if user.is_authenticated %}
+<div class="topnav">
+  <p id="accountName">Hi {{ user.username }}! You have successfully registered!</p>
+  <a href="{% url 'logout' %}">Log Out</a>
+  <a href="{% url 'home' %}">Go to the ICO home page</a>
+</div>
+{% else %}
+  <p>Hey! You are not logged in :(</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
+<style scoped>
+body {
+  --color-primary: #2e2e38;
+  --color-primary-light: #696660;
+  --color-secondary: #ffe600;
+  --color-error:  #cc3333;
+  --color-success:  #4bb544;
+  --border-radius: 4px;
+
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: var(--color-primary);
+}
+
+.topnav {
+  background-color: var(--color-primary-light);
+  overflow: hidden;
+  position: top;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font: 500 1rem 'EYInterstate', sans-serif;
+}
+
+.topnav p {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  position: absolute;
+  top: 1.6%;
+  font: 500 1rem 'EYInterstate', sans-serif;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: var(--color-secondary);
+  color: black;
+}
+
+</style>

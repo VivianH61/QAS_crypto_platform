@@ -1,0 +1,133 @@
+{% if user.is_authenticated %}
+<head>
+	{% load static %}
+	<link href="{% static "src/css/bootstrap.min.css" %}" rel="stylesheet"> 
+</head>
+
+<body>
+	<div class="topnav">
+	  <p id="accountName">Generate Account</p>
+	  <a href="{% url 'logout' %}">Log Out</a>
+	  <a href="{% url 'home' %}">Go to the ICO home page</a>
+	</div>
+
+	<p id="notification">
+	Note: Please keep your private key in a secure place.
+	Everytime you click the Generate Key function,
+	you will get different public/private key pair,
+	and your last generation result is unretrievable.
+	</p>
+  <span class="input-group-btn">
+    <a href="{% url 'handle_private_key' %}" class="btn btn-primary btn-lg">Generate Your Key</a>
+  </span>
+  <p id='alldata'></p>
+
+
+	{% load static %}
+    <script src="{% static "src/js/jquery.min.js" %}"></script>
+    <script src="{% static "src/js/jquery.cookie.min.js" %}"></script>
+
+  <script>
+    var data = JSON.parse("{{data|escapejs}}");
+    var dataNode = document.getElementById('alldata');
+    for(var x in data){
+        dataNode.innerHTML+='Your ' + x+ ' address is' + ' : '+data[x]+'<br><br>';
+    }
+  </script>
+
+</body>
+
+<style scoped>
+body{
+  background-color: #2e2e38;
+  --color-primary: #2e2e38;
+  --color-primary-light: #696660;
+  --color-secondary: #ffe600;
+  margin: 0px;
+}
+.btn-primary {
+    color: #212529;
+    background-color: #ffe600;
+    border-color: #ffe600
+    font-family: 'EYInterstate', sans-serif;
+    margin-top: 1%;
+    text-align: center;
+    margin-left: 1%;
+}
+.btn-primary:hover {
+    color: #white;
+    background-color: #696660;
+    border-color: #696660
+    font-family: 'EYInterstate', sans-serif;
+}
+.topnav {
+  background-color: var(--color-primary-light);
+  overflow: hidden;
+  width: 100%;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font: 500 1rem 'EYInterstate', sans-serif;
+}
+
+.topnav p {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  position: absolute;
+  top: 1.6%;
+  left: 1%;
+  font: 500 1rem 'EYInterstate', sans-serif;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: var(--color-secondary);
+  color: black;
+}
+
+p{
+	color: white;
+	font: 500 1rem 'EYInterstate', sans-serif;
+}
+
+#publicAddress{
+	margin-top: 2%;
+	position: center;
+	margin-left: 1%;
+}
+#privateAddress{
+	margin-left: 1%;
+}
+
+#notification{
+	margin-top: 2%;
+	margin-bottom: 0%;
+	margin-left: 1%;
+}
+#alldata{
+  margin-top: 2%;
+  margin-bottom: 0%;
+  margin-left: 1%;
+}
+
+</style>
+
+{% else %}
+  <p>Hey! You are not logged in :(</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}

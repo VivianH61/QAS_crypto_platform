@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\qascoin",
+    "\\qascoin\\Django_App_v0.9",
+    "\\qascoin\\Django_App_v0.9\\static",
+    "\\qascoin\\Django_App_v0.9\\static\\src",
+    "\\qascoin\\QAS_token",
+    "\\qascoin\\QAS_token\\src",
+    "\\qascoin\\QAS_token\\src\\js",
+    "\\qascoin\\secret_sharing",
+    "\\qascoin\\secret_sharing\\sss",
+    "\\qascoin\\secret_sharing\\sss\\src"
+  ],
+  "SelectedNode": "\\qascoin\\Django_App_v0.9\\manage.py",
+  "PreviewInSolutionExplorer": false
+}

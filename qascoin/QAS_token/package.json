@@ -1,0 +1,17 @@
+{
+	"name": "QAS Token Sale",
+	"version": "1.0.0",
+	"description": "QAS Token Sale ICO",
+	"main": "truffle.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"dev": "lite-server"
+	},
+	"author": "Yuan",
+	"license": "ISC",
+	"devDependencies": {
+		"lite-server": "^2.3.0"
+	}
+}
